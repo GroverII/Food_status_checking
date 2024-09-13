@@ -1,0 +1,587 @@
+﻿.slide {
+    background-color: rgba(255, 255, 255, 1);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 100vw;
+    filter: blur(0); /* Изначальное значение размытия */
+    transition: filter 0.3s ease; /* Плавное изменение размытия */
+}
+
+.blur {
+    filter: blur(5px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Задний фон с прозрачностью */
+    z-index: 999; /* Поместите поверх всех остальных элементов */
+    display: none; /* Изначально скрыто */
+    position: relative;
+}
+
+/* Покажите overlay при активном модальном окне */
+.blur {
+    filter: blur(2px);
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Задний фон с прозрачностью */
+    z-index: 999; /* Поместите поверх всех остальных элементов */
+    display: none; /* Изначально скрыто */
+}
+
+/* Покажите overlay при активном модальном окне */
+.slide.active .overlay {
+    display: block;
+}
+
+/* Добавьте pointer-events: none для slide при активном overlay */
+.slide.active {
+    pointer-events: none;
+}
+
+/* Дополнительные стили для модального окна (как указано в предыдущих ответах) */
+.modal {
+    position: absolute; /* Используйте fixed, чтобы окно оставалось видимым при прокрутке */
+    top: 17vh;
+    left: 7vw;
+    width: 86vw;
+    height: 75vh;
+    background: rgba(255, 255, 255, 0.8); /* Прозрачный фон, замените на нужный вам цвет или изображение */
+    z-index: 1000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    padding: 20px;
+    max-width: 100%;
+    width: 100%;
+    max-height: 100%;
+    overflow-y: auto; /* Добавьте прокрутку, если контент больше, чем помещается в окно */
+}
+
+.modal-header, .modal-footer {
+    text-align: center;
+}
+
+
+.text-wrapper-3,
+.text-wrapper-4,
+.text-wrapper-5,
+.text-wrapper-6,
+.text-wrapper-7,
+.text-wrapper-8 {
+    color: #2e2e2e;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    position: absolute;
+    text-align: right;
+    text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+}
+
+.text-wrapper-3 {
+    left: 2.8vw;
+    top: 1.4vh;
+}
+
+.text-wrapper-4 {
+    left: 4.4vw;
+    top: 14.5vh;
+}
+
+.text-wrapper-5 {
+    left: -3.13vw;
+    top: 24vh;
+}
+
+.text-wrapper-6 {
+    left: 52.5vw;
+    top: 24vh;
+}
+
+.text-wrapper-7 {
+    left: 5.34vw;
+    top: 37vh;
+}
+
+.text-wrapper-8 {
+    left: 2.34vw;
+    top: 46vh;
+}
+
+.overlap-3,
+.overlap-4,
+.overlap-5,
+.overlap-6,
+.overlap-7 {
+    background-color: #d9d9d9;
+    border-radius: 1.1vw;
+    box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+    height: 7.9vh;
+    left: 16.3vw;
+    position: absolute;
+}
+
+.overlap-3 {
+    top: 36vh;
+    width: 28.67vw;
+}
+
+.overlap-4,
+.overlap-5,
+.overlap-7 {
+    width: 20vw;
+    color: #3d3d3d;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: normal;
+    padding: 0.5vw;
+    background-position: right 0.5vw center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.overlap-4 {
+    top: 13.5vh;
+}
+
+.overlap-5 {
+    top: 23vh;
+    background-size: 100% 100%;
+}
+
+.overlap-6 {
+    top: 0.4vh;
+    left: 49.6vw;
+}
+
+.overlap-7 {
+    top: 0.4vh;
+}
+
+.div-wrapper,
+.v-rds-wrapper {
+    background-color: #d9d9d9;
+    border-radius: 1.1vw;
+    box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+    height: 7.9vh;
+    position: absolute;
+    color: #3d3d3d;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 300;
+    letter-spacing: 0;
+    line-height: normal;
+    padding: 0.5vw;
+    background-position: right 0.5vw center;
+    background-repeat: no-repeat;
+    cursor: pointer;
+}
+
+.div-wrapper {
+    left: 64.865vw;
+    top: 23vh;
+    width: 20.75vw;
+}
+
+.v-rds-wrapper {
+    left: 16.3245vw;
+    top: 45vh;
+    width: 28.67vw;
+}
+
+.v-rds-input {
+    background-color: #d9d9d9;
+    border: none;
+    border-radius: 1.1vw;
+    box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+    color: #3d3d3d;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 300;
+    height: 7.9vh;
+    width: 28.67vw;
+    margin: 0;
+    padding: 0 1vw; /* добавьте отступ по нуждам */
+    box-sizing: border-box; /* чтобы отступы не увеличивали общую ширину */
+}
+
+.date-picker {
+    background-color: #d9d9d9;
+    border-radius: 1.1vw;
+    box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+    height: 7.9vh;
+    width: 20vw;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 300;
+    padding: 1vh 1vw;
+    box-sizing: border-box;
+}
+
+.export-excel {
+    box-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+    height: 9.3vh;
+    left: 50vw;
+    position: absolute;
+    top: 65vh;
+    width: 21.5vw;
+    border-radius: 1.2vw;
+    background-color: #199726;
+    color: #ffffff;
+    font-family: "Kanit", Helvetica;
+    font-size: 2.83vw;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+    text-align: center;
+    cursor: pointer;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+    .slide .div {
+        background: linear-gradient(180deg, rgb(255, 230.46, 219.94) 0vw, rgb(188.57, 223.6, 243.31) 100vh);
+        background-color: rgba(255, 255, 255, 1);
+        height: 100vh;
+        position: relative;
+        width: 100vw;
+    }
+
+    .slide .export-excel {
+        box-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        height: 9.3vh;
+        left: 70vw;
+        position: absolute;
+        top: 85vh;
+        width: 21.5vw;
+        border-radius: 1.2vw;
+        background-color: #199726;
+        color: #ffffff;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: center;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .slide .overlap {
+        background-color: #3286e8;
+        border-radius: 1.2vw;
+        box-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        height: 11.5vh;
+        left: 16.315vw;
+        position: absolute;
+        top: 76.5vh;
+        width: 30vw;
+        color: #ffffff;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        letter-spacing: 0;
+        line-height: normal;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        cursor: pointer;
+        border: none;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+
+    .slide .text-wrapper-3 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 12.8vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 11.4vh;
+    }
+
+    .slide .text-wrapper-4 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 14.4vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 24.5vh;
+    }
+
+    .slide .text-wrapper-5 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 6.87vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 34vh;
+    }
+
+    .slide .text-wrapper-6 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 62.5vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 34vh;
+    }
+
+    .slide .text-wrapper-7 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 15.34vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 47vh;
+    }
+
+    .slide .text-wrapper-8 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 12.34vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 56vh;
+    }
+
+    .slide .text-wrapper-9 {
+        color: #2e2e2e;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 400;
+        left: 16.34vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        text-align: right;
+        text-shadow: -0.4vh 0.3vw 0.7vh #00000040;
+        top: 67vh;
+    }
+
+    .slide .overlap-2 {
+        height: 7.9vh;
+        left: 26.3245vw;
+        position: absolute;
+        top: 66vh;
+        width: 20vw;
+    }
+
+    .slide .form-kods {
+        left: 0 !important;
+        position: absolute !important;
+        top: -13vh !important;
+        width: 20.04vw !important;
+    }
+
+    .slide .text-wrapper-10 {
+        color: #3d3d3d;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        left: 2.6vw;
+        letter-spacing: 0;
+        line-height: normal;
+        position: absolute;
+        top: -13vh;
+        width: 20.04vw;
+    }
+
+    .slide .div-wrapper {
+        background-color: #d9d9d9;
+        background-size: 100% 100%;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        left: 74.865vw;
+        position: absolute;
+        top: 33vh;
+        width: 20.75vw;
+        color: #3d3d3d;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: normal;
+        padding: 0.5vw;
+        border-radius: 1.1vw; /* Добавлены скругленные углы */
+        background-position: right 0.5vw center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+
+    .slide .v-rds-wrapper {
+        background-color: #d9d9d9;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        left: 26.3245vw;
+        position: absolute;
+        top: 55vh;
+        width: 28.67vw;
+    }
+
+    .slide .v-rds-input {
+        background-color: #d9d9d9;
+        border: none;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        color: #3d3d3d;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        height: 7.9vh;
+        width: 28.67vw;
+        margin: 0;
+        padding: 0 1vw; /* добавьте отступ по нуждам */
+        box-sizing: border-box; /* чтобы отступы не увеличивали общую ширину */
+    }
+
+
+    .slide .overlap-3 {
+        background-color: #d9d9d9;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        left: 26.3245vw;
+        position: absolute;
+        top: 46vh;
+        width: 28.67vw;
+    }
+
+    .slide .overlap-4 {
+        background-color: #d9d9d9;
+        height: 7.9vh;
+        left: 26.3vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        position: absolute;
+        top: 23.5vh;
+        width: 20vw;
+        color: #3d3d3d;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: normal;
+        padding: 0.5vw; /* добавлено для обеспечения отступа внутри селекта */
+        border-radius: 1.1vw; /* Добавлены скругленные углы */
+        background-position: right 0.5vw center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+
+    .slide .overlap-5 {
+        background-color: #d9d9d9;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        background-size: 100% 100%;
+        height: 7.9vh;
+        left: 26.3vw;
+        position: absolute;
+        top: 33vh;
+        width: 20vw;
+        color: #3d3d3d;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        letter-spacing: 0;
+        line-height: normal;
+        padding: 0.5vw;
+        border-radius: 1.1vw; /* Добавлены скругленные углы */
+        background-position: right 0.5vw center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+    }
+
+
+    .slide .overlap-6 {
+        background-color: #d9d9d9;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        left: 49.6vw;
+        position: absolute;
+        top: 10.4vh;
+        width: 20vw;
+    }
+
+    .slide .overlap-7 {
+        background-color: #d9d9d9;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        left: 26.3vw;
+        position: absolute;
+        top: 10.4vh;
+        width: 20vw;
+    }
+
+    .slide .date-picker {
+        background-color: #d9d9d9;
+        border-radius: 1.1vw;
+        box-shadow: inset -0.15vw 0.5vh 0.7vh #00000080;
+        height: 7.9vh;
+        width: 20vw;
+        font-family: "Kanit", Helvetica;
+        font-size: 2.83vw;
+        font-weight: 300;
+        padding: 1vh 1vw;
+        box-sizing: border-box;
+    }
